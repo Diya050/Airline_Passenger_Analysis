@@ -35,10 +35,11 @@ To develop a predictive model that accurately forecasts the number of airline pa
 ## Analysis Insights
 
 1. **Data Loading and Exploration:**
-   - **Loading the Dataset:** The dataset used is [AirlinePassengers.csv)[https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv].
+   - **Loading the Dataset:** The dataset used is (AirlinePassengers.csv)[https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv].
    - **Plotting:** Plotted the time series to visualize the historical trends and patterns in the data.
    - **Observation:** The plot shows an upward trend with seasonal fluctuations.
 <br>
+
    ```python
    url = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv'
    data = pd.read_csv(url, parse_dates=['Month'], index_col='Month')
@@ -57,6 +58,7 @@ To develop a predictive model that accurately forecasts the number of airline pa
    - **Decomposition:** Decompose the time series into trend, seasonality, and residual components using the `seasonal_decompose` method.
    - **Observation:** By visualizing these components, we can understand the underlying patterns in the data.
 <br>
+
    ```python
    decomposition = seasonal_decompose(data, model='multiplicative')
    trend = decomposition.trend
@@ -84,6 +86,7 @@ To develop a predictive model that accurately forecasts the number of airline pa
    - **ADF Test:** Perform the Augmented Dickey-Fuller (ADF) test on the original series to check for stationarity. A non-stationary series has a unit root, showing trends or seasonality that must be removed.
    - **Differencing:** Apply differencing to the series if it is non-stationary and perform the ADF test again.
 <br>
+
    ```python
    from statsmodels.tsa.stattools import adfuller
 
@@ -107,6 +110,7 @@ To develop a predictive model that accurately forecasts the number of airline pa
    - **ACF and PACF Plots:** Plot the Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) to help determine the order of the ARIMA model.
    - **ARIMA Model:** Fit an ARIMA model to the data based on insights from the ACF and PACF plots.
 <br>
+
    ```python
    from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
@@ -127,6 +131,7 @@ To develop a predictive model that accurately forecasts the number of airline pa
    - **Residual Analysis:** Analyze the residuals of the fitted model to check for randomness and normality.
    - **Density Plot:** Plot the density of the residuals to ensure they follow a normal distribution.
 <br>
+
    ```python
    residuals = model_fit.resid
    plt.figure(figsize=(12, 6))
@@ -143,6 +148,7 @@ To develop a predictive model that accurately forecasts the number of airline pa
    - **Forecasting with ARIMA:** Forecast the number of passengers for the next 48 months using the fitted ARIMA model.
    - **Plot Forecast:** Visualize the forecast alongside the historical data to assess the model's performance.
 <br>
+
    ```python
    forecast_steps = 48
    forecast = model_fit.forecast(steps=forecast_steps)
