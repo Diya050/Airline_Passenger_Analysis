@@ -35,7 +35,7 @@ To develop a predictive model that accurately forecasts the number of airline pa
 ## Analysis Insights
 
 1. **Data Loading and Exploration:**
-   - **Loading the Dataset:** The dataset used is (AirlinePassengers.csv)[AirlinePassengers.csv].
+   - **Loading the Dataset:** The dataset used is [AirlinePassengers.csv](AirlinePassengers.csv).
    - **Plotting:** Plotted the time series to visualize the historical trends and patterns in the data.
    - **Observation:** The plot shows an upward trend with seasonal fluctuations.
 <br>
